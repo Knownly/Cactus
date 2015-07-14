@@ -63,7 +63,7 @@ def url(context, link_url):
         if url_link_url_index is None:
             logger.warn('%s: page resource does not exist: %s', page.link_url, link_url)
         
-        url = link_url
+        url = '%s%s' % (site.url, link_url)
 
     if site.prettify_urls:
         return url.rsplit('index.html', 1)[0]

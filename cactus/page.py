@@ -54,7 +54,7 @@ class Page(PageCompatibilityLayer, ResourceURLHelperMixin):
         """
         Return the absolute URL for this page in the final build
         """
-        return urlparse.urljoin(self.site.url, self.final_url)
+        return '%s%s' % (self.site.url, self.final_url)
 
     @property
     def full_source_path(self):

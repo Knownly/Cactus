@@ -313,7 +313,7 @@ class Site(SiteCompatibilityLayer):
         resources_dict = dict((resource.link_url, resource) for resource in resources)
 
         if resources_dict.has_key(src_url):
-            return resources_dict[src_url].final_url
+            return '%s%s' % (self.url, resources_dict[src_url].final_url)
 
         return None
 
