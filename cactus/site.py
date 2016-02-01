@@ -317,9 +317,12 @@ class Site(SiteCompatibilityLayer):
 
         return None
 
-
     def _get_url(self, src_url, resources):
-        return self._get_resource(src_url, resources)
+        url = self._get_resource(src_url, resources)
+        if url and self.url:
+            return '%s%s' % (self.url, self._get_resource(src_url, resources))
+        else:
+            return self._get_resource(src_url, resources)
 
     def get_url_for_static(self, src_path):
         return self._get_url(src_path, self.static())
